@@ -1,0 +1,38 @@
+:root {
+    --primary : green;
+    --secondary :brown;
+}
+.bg-primary{
+    background-color: var(--primary) !important;
+
+}
+.bg-secondary{
+    background-color: var(--secondary) !important;
+
+}
+
+.text-primary{
+    color:var(--primary) !important
+}
+.text-secondary{
+    color:var(--secondary) !important
+}
+.text-white{
+    color: white;
+}
+.text-black{
+    color:black
+}
+.success-bg{
+    background-color: rgb(83, 223, 83);
+    color:white !important;
+    padding:10px;
+    border-radius:3px;
+
+}
+.error-bg{
+    background-color:red;
+    color:white !important;
+    padding:10px;
+    border-radius:3px;
+}

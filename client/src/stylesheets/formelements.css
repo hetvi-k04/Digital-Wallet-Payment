@@ -1,0 +1,33 @@
+input ,select, textarea{
+    border : 1px solid grey;
+    padding : 8px 10px;
+    width:100%
+}
+
+input:focus,select:focus,textarea:focus{
+    border:1px solid rgb(70, 67, 67);
+    outline:none;
+}
+.primary-contained-btn{
+    background-color: var(--primary);
+    color:white;
+    padding:8px 20px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor:pointer
+}
+.primary-outlined-btn {
+    border: 1px solid #007bff;
+    color: #007bff;
+    background: transparent;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+/* .primary-contained-btn{
+    background-color: white;
+    color: var(--primary);
+    padding: 8px 20px;
+    text-transform: uppercase;
+    border:1px solid var(--primary);
+}  */
