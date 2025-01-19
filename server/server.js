@@ -7,9 +7,11 @@ app.use(express.json());
 const dbConfig= require("./config/dbconfig");
 const userRoutes=require("./routes/userRoutes");
 const transactionRoute = require("./routes/transactionsRoutes");
+const requestRoute = require("./routes/requestRoute");
 console.log("JWT_SECRET from .env:", process.env.jwt_secret);
 app.use('/api/users',userRoutes);
 app.use('/api/transactions',transactionRoute);
+app.use("/api/requests",requestRoute)
 const PORT = process.env.PORT || 5000;
 app.listen(5000,()=>{
     console.log("Server is running on port 5000");

@@ -1,0 +1,171 @@
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  p, h1, h2, span {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Page Title */
+  .page-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Account Summary Card */
+  .bg-gradient-to-r {
+    background: linear-gradient(to right, #4c6ef5, #7950f2);
+  }
+  
+  .bg-gradient-to-r, .bg-white {
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-white {
+    color: white;
+  }
+  
+  .text-md {
+    font-size: 1rem;
+  }
+  
+  .text-lg {
+    font-size: 1.25rem;
+  }
+  
+  .font-semibold {
+    font-weight: 600;
+  }
+  
+  .font-medium {
+    font-weight: 500;
+  }
+  
+  /* Container styles */
+  .p-6 {
+    padding: 1.5rem;
+  }
+  
+  .mt-4 {
+    margin-top: 1rem;
+  }
+  
+  .mt-6 {
+    margin-top: 1.5rem;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  
+  .mb-2 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .max-w-md {
+    max-width: 28rem;
+  }
+  
+  .mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Flexbox styles */
+  .flex {
+    display: flex;
+  }
+  
+  .justify-between {
+    justify-content: space-between;
+  }
+  
+  .items-center {
+    align-items: center;
+  }
+  
+  .flex-col-gap-2 {
+    gap: 2rem;
+  }
+  
+  .flex-col-gap-1 {
+    gap: 1rem;
+  }
+  
+  /* Card styling */
+  .card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-footer {
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .card-footer a {
+    color: #4c6ef5;
+    text-decoration: none;
+  }
+  
+  .card-footer a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Button Styling */
+  .primary-contained-btn {
+    background-color: #4c6ef5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .primary-contained-btn:hover {
+    background-color: #7950f2;
+  }
+  
+  .primary-outlined-btn {
+    background-color: transparent;
+    color: #4c6ef5;
+    border: 2px solid #4c6ef5;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .primary-outlined-btn:hover {
+    background-color: #f1f5f9;
+  }
+  
