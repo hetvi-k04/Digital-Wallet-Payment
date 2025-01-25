@@ -1,9 +1,10 @@
 import { axiosInstance } from ".";
 
+
 // Get all requests by user
 export const GetAllRequestsByUser = async () => {
   try {
-    const response = await axiosInstance.post("/requests/get-all-requests-by-user");
+    const response = await axiosInstance.post("/api/requests/get-all-requests-by-user");
     return response.data;  // Correctly returning the 'data' from the response
   } catch (error) {
     return error.response ? error.response.data : { message: 'An error occurred' };

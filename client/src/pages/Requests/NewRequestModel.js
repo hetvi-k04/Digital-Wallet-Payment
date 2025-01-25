@@ -55,17 +55,25 @@ function NewRequestModel({ showNewRequestModel,setShowNewRequestModel, reloadDat
     };
 
     const onFinish = async (values) => {
+        console.log("Payload being sent:", values);  
         console.log("Stored Token:", localStorage.getItem("token"));
 
         try {
             dispatch(ShowLoading());
 
+            // const payload = {
+            //     ...values,
+            //     sender: user._id,
+            //     amount: Number(values.amount),
+            //     reference: values.reference || "no reference",
+            //     status: "success",
+               
+                     
+            // };
             const payload = {
-                ...values,
-                sender: user._id,
-                amount: Number(values.amount),
-                reference: values.reference || "no reference",
-                status: "success",
+                receiverId: user._id,  // This should be a valid receiver ID
+                amount: values.amount,
+                description: values.description || '',  // Ensure message is filled in the form
             };
 
             const response = await SendRequest(payload);

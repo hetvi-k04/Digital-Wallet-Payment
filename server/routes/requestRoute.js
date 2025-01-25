@@ -6,7 +6,7 @@ const User = require("../models/userModels");
 router.post ("/get-all-requests-by-user",authMiddleware,async (req,res)=>{
     try{
         const requests = await Request.find({
-            $or:[{ sender: req.user._id}, { receiver: req.user._id}],
+            $or:[{ sender: req.body.userId}, { receiver: req.body.userId}],
 
     })
     .populate("sender")
@@ -22,9 +22,9 @@ router.post ("/get-all-requests-by-user",authMiddleware,async (req,res)=>{
 }
 });
 
-//send request to another user 
+// send request to another user 
 router.post("/send-request", authMiddleware, async (req, res) => {
-    const { receiverId, amount, message } = req.body; // Request data
+    const { receiverId, amount,  description = '' } = req.body; // Request data
   
     try {
       // Check if the receiver exists
@@ -32,6 +32,9 @@ router.post("/send-request", authMiddleware, async (req, res) => {
       if (!receiver) {
         return res.status(404).json({ message: "Receiver not found", success: false });
       }
+      if (description === undefined) {
+        return res.status(400).json({ success: false, message: 'Description is required' });
+    }
   
       // Create a new request
       const newRequest = new Request({
@@ -56,5 +59,6 @@ router.post("/send-request", authMiddleware, async (req, res) => {
       res.status(500).json({ error: error.message });
     }
   });
-  
+
+
   module.exports = router;
