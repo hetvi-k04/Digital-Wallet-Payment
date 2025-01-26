@@ -8,14 +8,14 @@ import { GetTransactionsofUser } from '../../apicalls/transactions';
 import moment from "moment";
 function Transactions() {
   const [showTransferFundsModel, setShowTransferFundsModel] = useState(false);
-  const [showDepositModel,setShowDepositModel] = useState(false);
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.users.user);
+  
   const columns = [
     {
       title: 'Date',
-      dataIndex: 'date',
+      dataIndex: 'createdAt',
       render: (text, record) => moment(record.createdAt).format("DD-MM-YYYY hh:mm:ss A"),
     },
     {
@@ -26,22 +26,30 @@ function Transactions() {
       title: 'Amount',
       dataIndex: 'amount',
       render: (text, record) => {
-        const isDebit = record.sender === user._id;
+        const isDebit = record.sender && record.sender._id === user._id;  // Check if sender is defined
         return `${isDebit ? '-' : '+'} ₹${record.amount}`;
       },
     },
     {
       title: 'Type',
       dataIndex: 'type',
-      render: (text, record) => (record.sender === user._id ? 'Debit' : 'Credit'),
+      render: (text, record) => {
+        if (record.sender && record.receiver) {
+          return record.sender._id === user._id ? 'Debit' : 'Credit'; // Check if sender/receiver is defined
+        }
+        return 'Unknown';  // Return a fallback value
+      },
     },
     {
       title: 'Reference Account',
       dataIndex: 'referenceAccount',
       render: (text, record) => {
-        return record.sender === user._id
-          ? `To: ${record.receiver}`
-          : `From: ${record.sender}`;
+        if (record.sender && record.receiver) {
+          return record.sender._id === user._id
+            ? `To: ${record.receiver.firstName} ${record.receiver.lastName}`
+            : `From: ${record.sender.firstName} ${record.sender.lastName}`;
+        }
+        return 'Unknown';  // Return a fallback value
       },
     },
     {
@@ -68,7 +76,7 @@ function Transactions() {
       message.error(error.message);
     }
   };
-
+  
   useEffect(() => {
     getData();
   }, []);

@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 const requestSchema = new mongoose.Schema({
    sender : {
     type : mongoose.Schema.Types.ObjectId,
-    ref: "users",
+    ref: "User",
    },
    receiver :{
     type : mongoose.Schema.Types.ObjectId,
-    ref: "users",
+    ref: "User",
    },
    amount :{
     type:Number,
@@ -15,7 +15,7 @@ const requestSchema = new mongoose.Schema({
    },
    description: {
     type : String,
-    required : true,
+    default : "",
    },
    status:{
     type : String,
@@ -25,4 +25,6 @@ const requestSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model("requests",requestSchema);
+const Request = mongoose.model("Request", requestSchema);
+
+ module.exports = Request;

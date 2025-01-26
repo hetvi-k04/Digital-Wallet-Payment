@@ -71,7 +71,8 @@ function NewRequestModel({ showNewRequestModel,setShowNewRequestModel, reloadDat
                      
             // };
             const payload = {
-                receiverId: user._id,  // This should be a valid receiver ID
+                sender: user._id,
+                receiver: values.receiver,  // This should be a valid receiver ID
                 amount: values.amount,
                 description: values.description || '',  // Ensure message is filled in the form
             };
